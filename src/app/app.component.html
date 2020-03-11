@@ -1,0 +1,32 @@
+<div class="page-area">
+  <div class="col-md-12">
+      <h3 class="text text-center text-primary mt-2">{{title}}</h3>
+          <hr>
+      <div class="row justify-content-center">
+          <div class="col-md-12 px-5">
+              <h3 class="text text-primary">patients Details:</h3>
+              <br>
+              <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"># S.No.</th>
+                      <th scope="col">Patient ID</th>
+                      <th scope="col">Patient Name</th>
+                      <th scope="col">Updated On</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor = "let Patient of patients;index as i" (click)="onClick(Patient)">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{Patient.other.pid}}</td>
+                          <td>{{Patient.name}}</td>
+                          <td>{{Patient.updatedAt|date}}</td>
+                          <td (click)="onDelete(i)"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
